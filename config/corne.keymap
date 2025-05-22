@@ -70,29 +70,29 @@
                         display-name = "Base";
                         bindings = <
   &kp Q  &kp W  &kp E   &kp R  &kp T        &kp Y     &kp U  &kp I      &kp O    &kp P
-  &hml LSHIFT A  &hml LALT S  &hml LCTRL D   &hml LGUI F  &kp G        &kp H     &hmr RGUI J  &hmr RCTRL K      &hmr RALT L    &kp SEMI
+  &hml LSHIFT A  &hml LALT S  &hml LCTRL D   &hml LGUI F  &kp G        &kp H     &hmr RGUI J  &hmr RCTRL K      &hmr RALT L    &hmr RSHIFT SEMI
   &kp Z  &kp X  &kp C   &kp V  &kp B        &kp N     &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                &trans  &mo 1  &kp SPACE    &kp BSPC  &mo 2  &kp ENTER
+                &kp TAB  &mo 1  &kp SPACE    &kp BSPC  &mo 2  &kp ENTER
                         >;
                 };
 
                 layer_1 {
                         display-name = "Layer1";
                         bindings = <
-  &trans  &trans  &trans      &trans      &trans     &kp FSLH   &kp N7  &kp N8   &kp N9  &kp LS(STAR)
-  &trans  &trans  &trans      &trans      &trans     &kp MINUS  &kp N4  &kp N5   &kp N6  &kp EQUAL
-  &trans  &trans  &trans      &trans      &trans     &kp EQUAL  &kp N1  &kp N2   &kp N3  &kp DOT
-                  &trans  &trans  &trans    &trans     &kp N0  &kp RET
+  &trans  &trans  &trans  &trans  &trans    &kp FSLH    &kp N7  &kp N8   &kp N9  &kp ASTERISK
+  &trans  &trans  &trans  &trans  &trans    &kp MINUS   &kp N4  &kp N5   &kp N6  &kp PLUS
+  &trans  &trans  &trans  &trans  &trans    &kp COMMA   &kp N1  &kp N2   &kp N3  &kp DOT
+                  &trans  &trans  &trans    &kp ESCAPE  &kp N0  &kp RET
                         >;
                 };
 
                 layer_2 {
                         display-name = "Layer2";
                         bindings = <
-  &kp N2  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                  &trans  &trans  &trans    &trans  &trans  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans
+  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
+  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans
+                  &trans  &trans  &trans    &trans    &trans    &trans
                         >;
                 };
 
