@@ -23,6 +23,16 @@
             bindings = <&mo 3>;
             key-positions = <31 34>;
         };
+
+         copy {
+            bindings = <&kp LG(C)>;
+            key-positions = <31 23>;
+        };
+
+        paste {
+            bindings = <&kp LG(V)>;
+            key-positions = <31 24>;
+        };
     };
 
     macros {
@@ -50,7 +60,7 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29>; // List of keys on the right side of the keyboard
+            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 31>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
         };
         hmr: home_row_mod_right {
@@ -103,7 +113,7 @@
                             &trans  &trans  &trans            &trans    &trans    &trans
                         >;
                 };
-
+                
                 layer_3 {
                         display-name = "Layer3";
                         bindings = <
