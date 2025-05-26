@@ -25,6 +25,14 @@
         };
     };
 
+    macros {
+        print_screen_select : print_screen_select {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LG(NUMBER_4))>;
+        };
+    };
+
     behaviors {
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
@@ -62,48 +70,56 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-// -----------------------------------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |     |  Y   |  U   |  I   |  O   | P |
-// |  A  |  S  |  D  |  F  |  G  |     |  H   |  J   |  K   |  L   | ; | 
-// |  Z  |  X  |  C  |  V  |  B  |     |  N   |  M   |  ,   |  .   | / |
-//             |  | Layer1 | SPC |     | BSPC | Layer2  | ENT |
                         display-name = "Base";
                         bindings = <
-  &kp Q  &kp W  &kp E   &kp R  &kp T        &kp Y     &kp U  &kp I      &kp O    &kp P
-  &hml LSHIFT A  &hml LALT S  &hml LCTRL D   &hml LGUI F  &kp G        &kp H     &hmr RGUI J  &hmr RCTRL K      &hmr RALT L    &hmr RSHIFT SEMI
-  &kp Z  &kp X  &kp C   &kp V  &kp B        &kp N     &kp M  &kp COMMA  &kp DOT  &kp FSLH
-                &kp TAB  &mo 1  &kp SPACE    &kp BSPC  &mo 2  &kp ENTER
+//   ╭────────────────┬───────────────┬──────────────┬──────────────┬───────────╮ 
+        &kp Q           &kp W           &kp E           &kp R           &kp T           &kp Y   &kp U           &kp I           &kp O           &kp P
+//   ├────────────────┼───────────────┼──────────────┼──────────────┼───────────┤
+        &hml LSHIFT A   &hml LCTRL S     &hml LALT D    &hml LGUI F     &kp G           &kp H   &hmr RGUI J     &hmr RALT K    &hmr RCTRL L     &hmr RSHIFT SEMI
+//   ├────────────────┼───────────────┼──────────────┼──────────────┼───────────┤
+        &kp Z           &kp X           &kp C           &kp V           &kp B           &kp N   &kp M           &kp COMMA       &kp DOT         &kp FSLH
+//   ├────────────────┼───────────────┼──────────────┼──────────────┼───────────┤
+                                        &kp ESC         &lt 1 TAB       &kp SPACE       &kp BSPC        &lt 2 ENTER     &kp LG(GRAVE)
+//                                 ╰───────────────┴────────────────┴───────────╯ 
                         >;
                 };
 
                 layer_1 {
                         display-name = "Layer1";
                         bindings = <
-  &trans  &trans  &trans  &trans  &trans    &kp FSLH    &kp N7  &kp N8   &kp N9  &kp ASTERISK
-  &trans  &trans  &trans  &trans  &trans    &kp MINUS   &kp N4  &kp N5   &kp N6  &kp PLUS
-  &trans  &trans  &trans  &trans  &trans    &kp COMMA   &kp N1  &kp N2   &kp N3  &kp DOT
-                  &trans  &trans  &trans    &kp ESCAPE  &kp N0  &kp RET
+  &print_screen_select  &trans  &trans  &trans  &trans           &kp FSLH    &kp N7  &kp N8   &kp N9  &kp ASTERISK
+  &trans  &trans  &trans  &trans  &trans                         &kp MINUS   &kp N4  &kp N5   &kp N6  &kp PLUS
+  &trans  &trans  &trans  &trans  &trans                         &kp COMMA   &kp N1  &kp N2   &kp N3  &kp DOT
+                  &trans  &trans  &trans                         &trans  &kp N0  &kp RET
                         >;
                 };
 
                 layer_2 {
                         display-name = "Layer2";
                         bindings = <
-  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans
-  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans  &trans     &trans
-                  &trans  &trans  &trans    &trans    &trans    &trans
+  &kp EXCL   &kp AT   &kp HASH   &kp DLLR   &kp PRCNT         &kp CARET  &kp AMPS   &kp ASTRK  &kp GRAVE   &kp TILDE
+  &kp DQT  &kp LBKT   &kp LBRC   &kp LPAR   &kp MINUS         &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &PIPE
+  &kp SQT  &kp RBKT   &kp RBRC   &kp RPAR   &kp UNDER         &kp HOME  &kp PG_DN &kp PG_UP &kp END  &BSLH
+                            &trans  &trans  &trans            &trans    &trans    &trans
                         >;
                 };
 
                 layer_3 {
                         display-name = "Layer3";
                         bindings = <
-  &kp N3  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                  &trans  &trans  &trans    &trans  &trans  &trans
-                        >;
+        //╭──────────┬──────────┬──────────┬───────────┬────────────╮   ╭────────────┬────────────┬──────────┬───────────┬──────────╮
+        //│  F1      │  F2      │  F3      │  F4       │            │   │            │            │          │ VOL MUTE  │ NEXTSONG │
+            &kp F1     &kp F2     &kp F3     &kp F4       &trans          &trans        &trans        &trans  &kp C_MUTE  &kp C_NEXT
+        //├──────────┼──────────┼──────────┼───────────┼────────────┤   ├────────────┼────────────┼──────────┼───────────┼──────────┤
+        //│  F5      │  F6      │  F7      │  F8       │            │   │            │ INC BRIGHT │          │  VOL UP   │PAUSEMUSIC│
+            &kp F5     &kp F6     &kp F7     &kp F8     &trans            &trans       &kp C_BRI_UP  &trans   &kp C_VOL_UP  &kp C_PP
+        //├──────────┼──────────┼──────────┼───────────┼────────────┤   ├────────────┼────────────┼──────────┼───────────┼──────────┤
+        //│  F9      │  F10     │  F11     │  F12      │  CLEAR BT  │   │            │ DEC BRIGHT │          |  VOL DOWN │ PREVSONG │
+            &kp F9     &kp F10    &kp F11    &kp F12     &bt BT_CLR      &trans       &kp C_BRI_DEC  &trans   &kp C_VOL_DN &kp C_PREV
+        //╰──────────┴──────────┴──────────┼───────────┼────────────┤   ├────────────┼────────────┼──────────┴───────────┴──────────╯
+                                    &trans     &trans     &trans          &trans      &trans      &trans
+        //                      ╰───────────┴───────────┴──────────╯   ╰───────────┴───────────┴──────────╯
+                        >; 
                 };
 
                 extra_4 {
