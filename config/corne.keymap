@@ -98,8 +98,8 @@
                         display-name = "Layer2";
                         bindings = <
   &kp EXCL   &kp AT   &kp HASH   &kp DLLR   &kp PRCNT         &kp CARET  &kp AMPS   &kp ASTRK  &kp GRAVE   &kp TILDE
-  &kp DQT  &kp LBKT   &kp LBRC   &kp LPAR   &kp MINUS         &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &PIPE
-  &kp SQT  &kp RBKT   &kp RBRC   &kp RPAR   &kp UNDER         &kp HOME  &kp PG_DN &kp PG_UP &kp END  &BSLH
+  &kp DQT  &kp LBKT   &kp LBRC   &kp LPAR   &kp MINUS         &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp PIPE
+  &kp SQT  &kp RBKT   &kp RBRC   &kp RPAR   &kp UNDER         &kp HOME  &kp PG_DN &kp PG_UP &kp END  &kp BSLH
                             &trans  &trans  &trans            &trans    &trans    &trans
                         >;
                 };
