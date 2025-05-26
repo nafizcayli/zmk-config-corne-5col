@@ -26,7 +26,7 @@
     };
 
     macros {
-        print_screen_select : print_screen_select {
+        print_screen_select: print_screen_select {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LS(LG(NUMBER_4))>;
